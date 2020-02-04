@@ -59,7 +59,7 @@ app.get('/weather', (req, res) => {
     }
 
     //geocode
-    geocode(req.query.address, (error, {latitude, longitude, location}) => { //使用解構: {latitude, longitude, location}
+    geocode(req.query.address, (error, {latitude, longitude, location} = {}) => { //使用解構: {latitude, longitude, location} //設定default
         if (error) {
             return res.send({ error }); //{ error: error }的縮寫 = { error } 
         }
