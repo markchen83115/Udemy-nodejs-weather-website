@@ -15,7 +15,7 @@ weatherForm.addEventListener('submit', (e) => { //e=event
     messageOne.textContent = 'Searching...';
 
     //將location丟到API 取得回應
-    fetch(`http://localhost:3000/weather?address=${encodeURIComponent(location)}`).then((response) => {
+    fetch(`/weather?address=${encodeURIComponent(location)}`).then((response) => { //將http://localhost:3000/weather?address=... 更改為/weather?address=... 使得執行heroku就自動對應到heroku, local對應到local
         response.json().then((data) => {
             if (data.error) {
                 messageOne.textContent = data.error; //讓<p>顯示error訊息
